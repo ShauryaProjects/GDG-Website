@@ -316,7 +316,7 @@ export const PreviousEventsSection = () => {
 
   return (
     <>
-      <EventsSectionContainer id="events" className="animate-section">
+      <EventsSectionContainer id="previous-events" className="animate-section">
         <SectionContent ref={sectionRef}>
           <MemoizedSectionHeader />
           <motion.div

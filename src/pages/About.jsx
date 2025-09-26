@@ -145,7 +145,7 @@ const DomainIcon = styled.div`
 `;
 
 const DomainTitle = styled.h3`
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   font-weight: 700;
   color: ${({ theme }) => theme.colors.text.primary};
   margin-bottom: 0.75rem;
@@ -153,7 +153,7 @@ const DomainTitle = styled.h3`
 `;
 
 const DomainDescription = styled.p`
-  font-size: 0.95rem;
+  font-size: 0.5rem;
   color: ${({ theme }) => theme.colors.text.secondary};
   line-height: 1.5;
   margin: 0;

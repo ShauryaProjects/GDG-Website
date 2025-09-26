@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import '../styles/Hero.css';
+
 const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
 
@@ -10,6 +11,16 @@ const HeroSection = () => {
     
     return () => clearTimeout(timeout);
   }, []);
+
+  const navigateToEvents = (e) => {
+    e.preventDefault();
+    window.location.href = '/events';
+  };
+
+  const navigateToAbout = (e) => {
+    e.preventDefault();
+    window.location.href = '/about';
+  };
   return (
     <section id="home" className="hero">
       <div className="hero-container">
@@ -19,8 +30,8 @@ const HeroSection = () => {
             <h2>on Campus MMMUT</h2>
             <p>Developing Together a Better Tomorrow</p>
             <div className="hero-buttons">
-              <a href="/#events" className="btn btn-primary">Explore Events</a>
-              <a href="/about" className="btn btn-outline">Learn More</a>
+              <button onClick={navigateToEvents} className="btn btn-primary">Explore Events</button>
+              <button onClick={navigateToAbout} className="btn btn-outline">Learn More</button>
             </div>
           </div>
           
