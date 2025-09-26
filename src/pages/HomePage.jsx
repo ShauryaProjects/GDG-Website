@@ -1,6 +1,5 @@
 import { useRef, useEffect } from 'react';
 import styled from 'styled-components';
-import { motion, useScroll, useTransform } from 'framer-motion';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import ParticlesBackground from '../components/Particles';
@@ -20,9 +19,6 @@ const HomePageContainer = styled.div`
 `;
 const HomePage = () => {
   const containerRef = useRef(null);
-  const { scrollYProgress } = useScroll();
-  // Use Framer Motion to create a smooth opacity transition based on scroll position
-  const opacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
   useEffect(() => {
     // GSAP animations setup
     const sections = gsap.utils.toArray('.animate-section');
@@ -54,9 +50,7 @@ const HomePage = () => {
   }, []);
   return (
     <HomePageContainer ref={containerRef}>
-      <motion.div style={{ opacity }}>
-        <HeroSection />
-      </motion.div>
+      <HeroSection />
       <AboutSection />
       <EventsSection />
       {/* <WinnersSection /> */}

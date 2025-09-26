@@ -24,7 +24,7 @@ const Aboutid = styled.section`
   background-clip: text;
   color: transparent;
   text-align: center; /* Centered for balance */
-  margin: 2rem 0 1.5rem 0; /* Top and bottom breathing space */
+  margin: 3rem 0 4.5rem 0; /* Top and bottom breathing space */
   line-height: 1.2;
   letter-spacing: 0.5px; /* Slightly open letters for readability */
 }
@@ -47,7 +47,7 @@ const Aboutid = styled.section`
 
   p {
     line-height: 1.6;
-    font-size: 1.05rem;
+    font-size: 1.09rem;
     text-align: justify;
     margin-bottom: 2rem;
   }
@@ -78,6 +78,85 @@ const Container = styled.div`
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
+`;
+
+const DomainsGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0 3rem 0;
+`;
+
+const DomainCard = styled.div`
+  position: relative;
+  background: ${({ theme }) => theme.colors.background.secondary};
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 8px 32px ${({ theme }) => theme.colors.shadow};
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+  will-change: transform;
+  
+  /* Neon border (static) with subtle glow; color controlled per-card */
+  border: 1px solid ${({ $color }) => `${$color}55`};
+  box-shadow: 0 0 0 1px ${({ $color }) => `${$color}33`} inset,
+              0 0 18px ${({ $color }) => `${$color}26`},
+              0 8px 32px ${({ theme }) => theme.colors.shadow};
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    padding: 2px; /* border thickness */
+    border-radius: 16px;
+    background: linear-gradient(90deg, ${({ $color }) => `${$color}`} 0%, ${({ $color }) => `${$color}`} 100%);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+            mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude; /* show only the ring */
+    pointer-events: none;
+  }
+  
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 0 0 1px ${({ $color }) => `${$color}66`} inset,
+                0 0 22px ${({ $color }) => `${$color}33`},
+                0 16px 48px ${({ theme }) => theme.colors.shadow};
+  }
+`;
+
+const DomainIcon = styled.div`
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, ${({ $color }) => $color}20, ${({ $color }) => $color}10);
+  border: 1px solid ${({ $color }) => $color}30;
+  color: ${({ $color }) => $color};
+  font-size: 2rem;
+  transition: transform 0.3s ease;
+  
+  ${DomainCard}:hover & {
+    transform: scale(1.1) rotate(5deg);
+  }
+`;
+
+const DomainTitle = styled.h3`
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: ${({ theme }) => theme.colors.text.primary};
+  margin-bottom: 0.75rem;
+  line-height: 1.3;
+`;
+
+const DomainDescription = styled.p`
+  font-size: 0.95rem;
+  color: ${({ theme }) => theme.colors.text.secondary};
+  line-height: 1.5;
+  margin: 0;
 `;
 
 const FeaturesGrid = styled.div`
@@ -147,7 +226,7 @@ const AboutStats = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   gap: 2rem;
-  margin-top: 4rem;
+  margin-top: 0;
 
   .stat-card {
     background: linear-gradient(135deg, ${({ theme }) => theme.colors.background.primary}, ${({ theme }) => theme.colors.background.secondary});
@@ -158,13 +237,13 @@ const AboutStats = styled.div`
     flex-direction: column;
     align-items: center;
     text-align: center;
-    box-shadow: 0 4px 15px ${({ theme }) => theme.colors.shadow};
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     transform: translateY(30px);
 
     &:hover {
       transform: translateY(-5px);
-      box-shadow: 0 10px 30px ${({ theme }) => theme.colors.shadow};
+      box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
     }
   }
 
@@ -211,49 +290,43 @@ const About = () => {
     };
   }, []);
 
-  const features = [
+  const domains = [
     {
-      icon: <Globe size={36} />,
+      icon: <Globe size={32} />,
       title: 'Web Development',
-      description: "Connect with developers from around the world and be part of Google's global developer network.",
+      description: 'Build modern, responsive web applications using cutting-edge technologies and frameworks.',
+      color: '#4285F4'
     },
     {
-      icon: <Smartphone  size={36} />,
+      icon: <Smartphone size={32} />,
       title: 'Android Development',
-      description: 'Learn new technologies through practical workshops led by industry experts and Google Developer Experts.',
+      description: 'Create powerful mobile applications for Android platform with Kotlin and modern development practices.',
+      color: '#34A853'
     },
     {
-      icon: <div className="flex items-center gap-1">
-<Bot size={48} color="#4F46E5" />
-<CircuitBoard size={20} color="#4F46E5" />
-</div>,
-      title: 'Artificial Intelligence & Machine Learning',
-      description: 'Meet like-minded developers, form valuable connections, and collaborate on exciting projects.',
+      icon: <Bot size={32} />,
+      title: 'AI & Machine Learning',
+      description: 'Explore artificial intelligence, machine learning algorithms, and data science applications.',
+      color: '#A855F7'
     },
     {
-      icon: <div className="flex items-center gap-1">
-  <Shield size={44} color="#9042f5" />
-  <Cpu size={20} color="#9042f5" />
-</div>,
-      title: 'Cybersecurity and Cryptography',
-      description: 'Get inspired, share ideas, and stay ahead of the curve with the latest Google technologies and tools.',
+      icon: <Shield size={32} />,
+      title: 'Cybersecurity',
+      description: 'Learn security best practices, cryptography, and protect systems from cyber threats.',
+      color: '#F43F5E'
     },
     {
-      icon: <div className="flex items-center gap-1">
-  <Network size={22} color="#f59e42" />
-  <Link size={40} color="#f59e42" />
-</div>,
-      title: 'Blockchain & Web 3.0',
-      description: 'Focus on the future of decentralized technologies.',
+      icon: <Link size={32} />,
+      title: 'Blockchain & Web3',
+      description: 'Dive into decentralized technologies, smart contracts, and the future of the internet.',
+      color: '#F59E0B'
     },
     {
-      icon: <div className="flex items-center gap-1">
-  <Server size={20} color="#2563EB" />
-  <Cloud size={44} color="#2563EB" />
-</div>,
-      title: 'Open Source & Cloud Computing',
-      description: 'Harness the power of open-source tools and scalable cloud solutions.',
-    },
+      icon: <Cloud size={32} />,
+      title: 'Cloud Computing',
+      description: 'Master cloud platforms, DevOps practices, and scalable infrastructure solutions.',
+      color: '#22C55E'
+    }
   ];
 
   return (
@@ -268,17 +341,21 @@ const About = () => {
             the period of time we have developed, expanded and evolved to become the largest developer
             based community of our campus and in the region as well. Our mission has always been to
             promote technology, foster innovation, and nurture skill development within the tech
-            community. Through workshops, hackathons, and expert sessions, we cover a diverse range
+            community. 
+          <br /> <br />  Through workshops, hackathons, and expert sessions, we cover a diverse range
             of domains, including:
             </p>
-            <div className='flex flex-col items-start flex-1/6 justify-center'>
-              <p>💻 Web Development</p>
-              <p>📱 Android Development</p>
-              <p>🤖 Artificial Intelligence & Machine Learning</p>
-              <p>📊 Cybersecurity & Cryptography</p>
-              <p>🔗 Blockchain & Web 3.0</p>
-              <p>🌐 Open Source & Cloud Computing</p>
-            </div>
+            <DomainsGrid>
+              {domains.map((domain, index) => (
+                <DomainCard key={domain.title} $color={domain.color}>
+                  <DomainIcon $color={domain.color}>
+                    {domain.icon}
+                  </DomainIcon>
+                  <DomainTitle>{domain.title}</DomainTitle>
+                  <DomainDescription>{domain.description}</DomainDescription>
+                </DomainCard>
+              ))}
+            </DomainsGrid>
             <p>In 2021, we underwent a strategic rebranding as Google Developer Student Clubs (GDSC),
               aligning more closely with Google’s global vision of empowering students through
               technology-driven development.</p>
@@ -303,29 +380,13 @@ const About = () => {
               Boost Programme, Google’s Week of Wonders, Google’s Solution Challenge and the largest
               worldwide fest of the Google Developer Programme i.e. DevFest
               <a href="https://gdg.community.dev/gdg-on-campus-madan-mohan-malaviya-university-oft echnology-gorakhpur-india/"> Join Our Community!</a>
-            </p>
-
-            
+            </p>   
 
           </p>
           <h3>Join a thriving community of Google developers.</h3>
         </div>
 
-        <FeaturesGrid>
-          {features.map((feature, index) => (
-            <div
-              key={index}
-              className="feature-card"
-              ref={el => (cardsRef.current[index] = el)}
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              <div className="feature-icon">{feature.icon}</div>
-              <h3>{feature.title}</h3>
-              <p>{feature.description}</p>
-            </div>
-          ))}
-        </FeaturesGrid>
-
+       
         <AboutStats>
           <div className="stat-card">
             <span className="stat-number">1000+</span>

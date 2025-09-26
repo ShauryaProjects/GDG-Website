@@ -65,8 +65,11 @@ const FooterLink = styled.a`
 
 const SocialLinks = styled.div`
   display: flex;
-  gap: 1rem;
-  margin-top: 1rem;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  margin: 2rem 0;
+  flex-wrap: wrap;
 `;
 
 const SocialIcon = styled(motion.a)`
@@ -131,7 +134,6 @@ const Footer = () => {
     <FooterContainer>
       <FooterContent>
         <FooterSection>
-
           <FooterTitle> 
             <Logo />
             </FooterTitle>
@@ -140,80 +142,6 @@ const Footer = () => {
             designers, and enthusiasts who come together to learn, share, and grow 
             in technology.
           </p>
-          <SocialLinks className='flex flex-wrap justify-center items-center'>
-            <SocialIcon 
-              href="https://x.com/gdgmmmut" 
-              target="_blank" 
-              whileHover={{ y: -3 }}
-              aria-label="Twitter"
-            >
-              <FaTwitter />
-            </SocialIcon>
-            <SocialIcon 
-              href="https://github.com/gdgmmmut" 
-              target="_blank" 
-              whileHover={{ y: -3 }}
-              aria-label="GitHub"
-            >
-              <FaGithub />
-            </SocialIcon>
-            <SocialIcon 
-              href="https://www.linkedin.com/company/gdgmmmut/" 
-              target="_blank" 
-              whileHover={{ y: -3 }}
-              aria-label="LinkedIn"
-            >
-              <FaLinkedin />
-            </SocialIcon>
-            <SocialIcon 
-              href="https://discord.gg/4rp8Jw7" 
-              target="_blank" 
-              whileHover={{ y: -3 }}
-              aria-label="Discord"
-            >
-              <FaDiscord />
-            </SocialIcon>
-            <SocialIcon 
-              href="https://www.youtube.com/channel/UCJy6ERxC0x4xSmpS3sd2FIg/" 
-              target="_blank" 
-              whileHover={{ y: -3 }}
-              aria-label="YouTube"
-            >
-              <FaYoutube />
-            </SocialIcon>
-            <SocialIcon 
-              href="https://www.instagram.com/gdgmmmut/" 
-              target="_blank" 
-              whileHover={{ y: -3 }}
-              aria-label="Instagram"
-            >
-              <FaInstagram />
-            </SocialIcon>
-            <SocialIcon 
-              href="https://www.facebook.com/gdscmmmut/" 
-              target="_blank" 
-              whileHover={{ y: -3 }}
-              aria-label="Facebook"
-            >
-              <FaFacebook />
-            </SocialIcon>
-            <SocialIcon 
-              href="https://whatsapp.com/channel/0029VaUC9xeIiRoysh771f3Y" 
-              target="_blank" 
-              whileHover={{ y: -3 }}
-              aria-label="Whatsapp"
-            >
-              <FaWhatsapp />
-            </SocialIcon>
-            <SocialIcon 
-              href="https://t.me/gdgmmmut" 
-              target="_blank" 
-              whileHover={{ y: -3 }}
-              aria-label="Telegram"
-            >
-              <FaTelegram />
-            </SocialIcon>
-          </SocialLinks>
         </FooterSection>
         
         <FooterSection>
@@ -239,6 +167,81 @@ const Footer = () => {
           <FooterLink href="#">Uttar Pradesh, India</FooterLink>
         </FooterSection>
       </FooterContent>
+      
+      <SocialLinks>
+        <SocialIcon 
+          href="https://x.com/gdgmmmut" 
+          target="_blank" 
+          whileHover={{ y: -3 }}
+          aria-label="Twitter"
+        >
+          <FaTwitter />
+        </SocialIcon>
+        <SocialIcon 
+          href="https://github.com/gdgmmmut" 
+          target="_blank" 
+          whileHover={{ y: -3 }}
+          aria-label="GitHub"
+        >
+          <FaGithub />
+        </SocialIcon>
+        <SocialIcon 
+          href="https://www.linkedin.com/company/gdgmmmut/" 
+          target="_blank" 
+          whileHover={{ y: -3 }}
+          aria-label="LinkedIn"
+        >
+          <FaLinkedin />
+        </SocialIcon>
+        <SocialIcon 
+          href="https://discord.gg/4rp8Jw7" 
+          target="_blank" 
+          whileHover={{ y: -3 }}
+          aria-label="Discord"
+        >
+          <FaDiscord />
+        </SocialIcon>
+        <SocialIcon 
+          href="https://www.youtube.com/channel/UCJy6ERxC0x4xSmpS3sd2FIg/" 
+          target="_blank" 
+          whileHover={{ y: -3 }}
+          aria-label="YouTube"
+        >
+          <FaYoutube />
+        </SocialIcon>
+        <SocialIcon 
+          href="https://www.instagram.com/gdgmmmut/" 
+          target="_blank" 
+          whileHover={{ y: -3 }}
+          aria-label="Instagram"
+        >
+          <FaInstagram />
+        </SocialIcon>
+        <SocialIcon 
+          href="https://www.facebook.com/gdscmmmut/" 
+          target="_blank" 
+          whileHover={{ y: -3 }}
+          aria-label="Facebook"
+        >
+          <FaFacebook />
+        </SocialIcon>
+        <SocialIcon 
+          href="https://whatsapp.com/channel/0029VaUC9xeIiRoysh771f3Y" 
+          target="_blank" 
+          whileHover={{ y: -3 }}
+          aria-label="Whatsapp"
+        >
+          <FaWhatsapp />
+        </SocialIcon>
+        <SocialIcon 
+          href="https://t.me/gdgmmmut" 
+          target="_blank" 
+          whileHover={{ y: -3 }}
+          aria-label="Telegram"
+        >
+          <FaTelegram />
+        </SocialIcon>
+      </SocialLinks>
       
       <Copyright>
         <p>© {new Date().getFullYear()} GDG MMMUT. All rights reserved.</p>
