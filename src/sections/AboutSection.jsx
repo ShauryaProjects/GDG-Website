@@ -35,6 +35,7 @@ const SectionTitle = styled.h2`
   margin-bottom: 1rem;
   position: relative;
   display: inline-block;
+  cursor: default;
   
   &::after {
     content: '';
@@ -42,8 +43,14 @@ const SectionTitle = styled.h2`
     left: 0;
     bottom: -0.5rem;
     height: 4px;
-    width: 60px;
+    width: 50%;
     background-color: ${({ theme }) => theme.colors.primary};
+    transform-origin: left;
+    transition: width 0.3s ease;
+  }
+
+  &:hover::after {
+    width: 100%;
   }
 `;
 
@@ -160,7 +167,7 @@ const AboutSection = () => {
     <AboutSectionContainer id="about" className="animate-section">
       <AboutWrapper>
         <AboutContent>
-          <SectionTitle>About  GDG On Campus MMMUT</SectionTitle>
+          <SectionTitle>About GDG On Campus MMMUT</SectionTitle>
           <AboutText>
             <p>
               Founded on 26th September 2020 by our esteemed alumnus Abhishek Kumar Yadav, we

@@ -11,7 +11,7 @@ const Aboutid = styled.section`
 
  .section-title {
   font-size: clamp(1.8rem, 4vw, 2.5rem); /* Responsive size */
-  font-weight: 800;
+  font-weight: 900;
   background: linear-gradient(
     135deg,
     #4285f4 0%,   /* Google Blue */
@@ -33,16 +33,16 @@ const Aboutid = styled.section`
 .section-title::after {
   content: '';
   display: block;
-  width: 50px;
+  width: 65%;
   height: 3px;
   margin: 0.5rem auto 0;
   background-color: rgba(93, 167, 223, 0.7);
   border-radius: 2px;
-  transition: width 0.3s ease;
+  transition: width 0.6s ease;
 }
 
 .section-title:hover::after {
-  width: 80px;
+  width: 100%;
 }
 
   p {
@@ -302,7 +302,7 @@ const About = () => {
               Developer Initative like Google Cloud Gen AI Study Jams, Google Cloud Arcade Skills
               Boost Programme, Google’s Week of Wonders, Google’s Solution Challenge and the largest
               worldwide fest of the Google Developer Programme i.e. DevFest
-              <a href="https://gdg.community.dev/gdg-on-campus-madan-mohan-malaviya-university-oftechnology-gorakhpur-india/"> Join Our Community!</a>
+              <a href="https://gdg.community.dev/gdg-on-campus-madan-mohan-malaviya-university-oft echnology-gorakhpur-india/"> Join Our Community!</a>
             </p>
 
             

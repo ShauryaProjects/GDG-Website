@@ -227,6 +227,7 @@ const Header = () => {
         <NavLink to="/" onClick={closeMenu} data-active={isActive('/')}>Home</NavLink>
         <NavLink to="/events" onClick={closeMenu} data-active={isActive('/events')}>Events</NavLink>
         <NavLink to="/team" onClick={closeMenu} data-active={isActive('/team')}>Team</NavLink>
+        <NavLink to="/about" onClick={closeMenu} data-active={isActive('/#about')}>About</NavLink>
         <NavLink to="/#sponsors" onClick={closeMenu} data-active={isActive('/#sponsors')}>Sponsor</NavLink>
         <NavLink to="/#contact" onClick={closeMenu} data-active={isActive('/#contact')}>Contact</NavLink>
         
