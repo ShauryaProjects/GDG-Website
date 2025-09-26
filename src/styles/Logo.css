@@ -1,0 +1,45 @@
+
+/*logo*/
+.logo-colors {
+  display: flex;
+  gap:4px;
+
+}
+
+.logo-colors span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: block;
+  animation: dot-wave 1.2s ease-in-out infinite alternate;
+  will-change: transform;
+  transform-origin: center;
+}
+
+/* Staggered delays for wave motion */
+.logo-colors span:nth-child(1) { animation-delay: 0s; }
+.logo-colors span:nth-child(2) { animation-delay: 0.12s; }
+.logo-colors span:nth-child(3) { animation-delay: 0.24s; }
+.logo-colors span:nth-child(4) { animation-delay: 0.36s; }
+
+@keyframes dot-wave {
+  0% { transform: translateY(-5px); }
+  100% { transform: translateY(5px); }
+}
+
+.logo-blue {
+  background-color: #4285F4;
+}
+
+.logo-red {
+  background-color: #DB4437;
+}
+
+.logo-yellow {
+  background-color: #F4B400;
+}
+
+.logo-green {
+  background-color: #0F9D58;
+}
+/*done*/
