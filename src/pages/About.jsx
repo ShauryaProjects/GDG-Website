@@ -6,10 +6,10 @@ import '../styles/About.css';
 const Aboutid = styled.section`
   color: ${({ theme }) => theme.colors.text.primary};
   padding: 80px 20px;
-  max-width: 1100px;
+  /* max-width: 1100px; */
   margin: 0 auto;
 
- .section-title {
+ .section-title { 
   font-size: clamp(1.8rem, 4vw, 2.5rem); /* Responsive size */
   font-weight: 900;
   background: linear-gradient(
@@ -75,7 +75,7 @@ const Aboutid = styled.section`
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  max-width: 1200px;
+  /* max-width: 1200px; */
   margin: 0 auto;
   padding: 0 20px;
 `;
@@ -147,7 +147,7 @@ const DomainIcon = styled.div`
 const DomainTitle = styled.h3`
   font-size: 1.5rem;
   font-weight: 700;
-  color: ${({ theme }) => theme.colors.text.primary};
+  color: ${({ $color }) => `${$color}`};
   margin-bottom: 0.75rem;
   line-height: 1.3;
 `;
@@ -229,7 +229,6 @@ const AboutStats = styled.div`
   margin-top: 0;
 
   .stat-card {
-    background: linear-gradient(135deg, ${({ theme }) => theme.colors.background.primary}, ${({ theme }) => theme.colors.background.secondary});
     color: ${({ theme }) => theme.colors.text.primary};
     border-radius: 1rem;
     padding: 1.5rem;
@@ -251,7 +250,7 @@ const AboutStats = styled.div`
     font-size: 2.5rem;
     font-weight: 700;
     margin-bottom: 0.25rem;
-    background: linear-gradient(45deg, ${({ theme }) => theme.colors.primary}, ${({ theme }) => theme.colors.secondary});
+    background: linear-gradient(45deg, #706f6f, #f7f4f4);;
     background-size: 200% 200%;
     -webkit-background-clip: text;
     background-clip: text;
@@ -351,7 +350,7 @@ const About = () => {
                   <DomainIcon $color={domain.color}>
                     {domain.icon}
                   </DomainIcon>
-                  <DomainTitle>{domain.title}</DomainTitle>
+                  <DomainTitle $color={domain.color}>{domain.title}</DomainTitle>
                   <DomainDescription>{domain.description}</DomainDescription>
                 </DomainCard>
               ))}

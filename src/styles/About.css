@@ -3,7 +3,7 @@
 }
 
 .about-header {
-  max-width: 800px;
+  max-width: 1000px;
   margin: 0 auto var(--spacing-xxl);
   text-align: center;
   opacity: 0;
@@ -18,7 +18,7 @@
 
 .about-description {
   font-size: var(--font-size-lg);
-  max-width: 800px;
+  max-width: 1000px;
   margin: 0 auto var(--spacing-lg);
   line-height: 1.6;
 }
@@ -101,7 +101,7 @@
 }
 
 .stat-card {
-  background: linear-gradient(135deg, var(--surface-elevated), var(--surface));
+  background:linear-gradient(135deg, #333232, #0a0a0a);;
   border-radius: var(--radius-lg);
   padding: var(--spacing-lg);
   display: flex;
